@@ -21,17 +21,14 @@
 | kernel and includes session state, CSRF protection, and more.
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('test', 'TestController@getTest');
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
 
-// Auth routes
-Route::get('login', 'AuthController@getLogin');
-Route::post('login', 'AuthController@postLogin');
-Route::get('registration', 'AuthController@getRegistration');
-Route::post('registration', 'AuthController@postRegistration');
-
-// Workflow routes
-Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'HomeController@index');
 
     Route::group(['prefix' => 'workflow'], function() {
 
