@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Book;
+use Illuminate\Http\Response;
 
 class TestController extends Controller
 {
     public function getTest()
     {
-        $users = DB::table('users')->get();
+        $book = Book::find(1);
+        $autors = $book->autors;
 
-        return view('user.index', ['users' => $users]);
+        return response()->json($autors);
     }
 }

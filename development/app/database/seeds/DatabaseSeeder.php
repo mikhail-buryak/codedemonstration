@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
     }
 }
 
-class AutorsTableSeeder extends Seeder {
-
+class AutorsTableSeeder extends Seeder
+{
     public function run()
     {
         DB::table('autors')->delete();
@@ -35,8 +35,8 @@ class AutorsTableSeeder extends Seeder {
     }
 }
 
-class BooksTableSeeder extends Seeder {
-
+class BooksTableSeeder extends Seeder
+{
     public function run()
     {
         DB::table('books')->delete();
