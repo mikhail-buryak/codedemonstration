@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('test', 'TestController@getTest');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -25,6 +27,16 @@ Route::get('/', function () {
 | kernel and includes session state, CSRF protection, and more.
 |
 */
+// Api routes
+/*Route::group(['prefix' => 'workflow', 'namespace' => 'App\Http\Controllers'], function ($app) {
+
+    // Auth routes
+    $app->get('auth/activate', 'AuthController@getActivateCheck');
+    $app->post('auth/activate/send', 'AuthController@postActivateSend');
+});*/
+
+
+
 
 Route::group(['middleware' => ['web']], function () {
     //
