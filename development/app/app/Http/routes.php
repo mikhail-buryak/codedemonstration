@@ -11,12 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('test', 'TestController@getTest');
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -27,17 +21,28 @@ Route::get('test', 'TestController@getTest');
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-// Api routes
-/*Route::group(['prefix' => 'workflow', 'namespace' => 'App\Http\Controllers'], function ($app) {
 
-    // Auth routes
-    $app->get('auth/activate', 'AuthController@getActivateCheck');
-    $app->post('auth/activate/send', 'AuthController@postActivateSend');
-});*/
+Route::get('test', 'TestController@getTest');
 
+// Auth routes
+Route::get('login', 'AuthController@getLogin');
+Route::post('login', 'AuthController@postLogin');
+Route::get('registration', 'AuthController@getRegistration');
+Route::post('registration', 'AuthController@postRegistration');
 
+// Workflow routes
+Route::group(['middleware' => 'auth'], function () {
 
+    Route::group(['prefix' => 'workflow'], function() {
 
-Route::group(['middleware' => ['web']], function () {
-    //
+        Route::get('/', 'WorkflowController@getWorkflow');
+        Route::post('search', 'TestController@postSearch');
+
+        Route::group(['prefix' => 'item'], function() {
+
+            Route::get('view/{id}', 'ItemController@getView');
+            Route::post('edit/{id}', 'ItemController@postEdit');
+            Route::post('delete/{id}', 'ItemController@postDelete');
+        });
+    });
 });
