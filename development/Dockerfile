@@ -23,7 +23,7 @@ RUN apt-get -y install software-properties-common
 RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
 RUN apt-get update
 
-RUN BUILD_PACKAGES="supervisor nginx php7.0-fpm git php-apc php7.0-curl vim php7.0-mbstring php7.0-zip php7.0-gd php7.0-intl php7.0-mcrypt php7.0-sqlite php7.0-tidy php7.0-xmlrpc php7.0-xsl php7.0-pgsql php7.0-ldap pwgen curl libcurl3 libcurl3-dev nodejs" && \
+RUN BUILD_PACKAGES="supervisor nginx php7.0-fpm git php-apc php7.0-curl vim php7.0-mbstring php7.0-zip php7.0-gd php7.0-intl php7.0-mcrypt php7.0-sqlite php7.0-tidy php7.0-xmlrpc php7.0-xsl php7.0-mysql php7.0-ldap pwgen curl libcurl3 libcurl3-dev nodejs" && \
 apt-get -y install $BUILD_PACKAGES && \
 apt-get remove --purge -y software-properties-common && \
 apt-get autoremove -y && \

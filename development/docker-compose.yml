@@ -10,11 +10,9 @@ services:
     depends_on:
      - db
   db:
-    image: "postgres:9.5"
-    volumes_from:
-      - data
+    image: orchardup/mysql
     ports:
-     - "5432:5432"
+     - "3306:3306"
   data:
     image: cogniteev/echo
     command: echo 'Data Container for PostgreSQL'

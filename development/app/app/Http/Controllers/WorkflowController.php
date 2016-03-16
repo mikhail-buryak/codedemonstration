@@ -9,8 +9,8 @@ class WorkflowController extends Controller
         $this->middleware('auth');
     }
 
-    public function getWorkflow()
+    public function index()
     {
-
+        return view('workflow');
     }
 }

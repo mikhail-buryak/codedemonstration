@@ -21,6 +21,7 @@
 | kernel and includes session state, CSRF protection, and more.
 |
 */
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -28,17 +29,19 @@ Route::get('/', function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
+    Route::get('images/covers/{file}','ImageController@getImageCover');
+
     Route::get('/home', 'HomeController@index');
 
     Route::group(['prefix' => 'workflow'], function() {
 
-        Route::get('/', 'WorkflowController@getWorkflow');
-        Route::post('search', 'TestController@postSearch');
+        Route::get('/', 'WorkflowController@index');
 
-        Route::group(['prefix' => 'item'], function() {
-
+        Route::group(['prefix' => 'items'], function() {
+            Route::get('all', 'ItemController@getAll');
             Route::get('view/{id}', 'ItemController@getView');
-            Route::post('edit/{id}', 'ItemController@postEdit');
+            Route::get('edit/{id}', 'ItemController@getEdit');
+            Route::post('store/{id?}', 'ItemController@postStore');
             Route::post('delete/{id}', 'ItemController@postDelete');
         });
     });
