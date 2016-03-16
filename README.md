@@ -1,7 +1,8 @@
 ## Mikhail Buryak ##
 =================
+### Code demonstration ###
 
-**Code demonstration**
+**Target**
 
 Make on Laravel 5 feature is only for registered users to view, delete, edit entries in the table "books".
 
