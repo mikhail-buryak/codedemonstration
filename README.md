@@ -1,6 +1,6 @@
 ## Mikhail Buryak ##
 =================
-### Code demonstration ###
+### Code Demonstration ###
 
 **Target**
 
