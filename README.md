@@ -7,8 +7,10 @@ Make on Laravel 5 feature is only for registered users to view, delete, edit ent
 
 **Stack**
 
+* Docker
+* Nginx
+* MySQL
 * Laravel 5
-* mySql
 * DataTables
 * Bootstrap
 * jQuery
